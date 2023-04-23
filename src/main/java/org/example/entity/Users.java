@@ -14,7 +14,7 @@ public class Users {
     private String surname;
 
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "logging_data_id")
     private LoggingData loggingData;
     @ManyToMany
@@ -85,13 +85,14 @@ public class Users {
         this.stock = stock;
     }
 
+
     @Override
     public String toString() {
         return "Users{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", loggingData=" + loggingData +
+
                 '}';
     }
 }

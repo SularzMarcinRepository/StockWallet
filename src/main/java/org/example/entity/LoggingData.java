@@ -45,6 +45,7 @@ public class LoggingData {
         this.users = users;
     }
 
+
     @Override
     public String toString() {
         return "LoggingData{" +

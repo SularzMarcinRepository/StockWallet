@@ -69,6 +69,15 @@ public class Stock {
         this.industry = industry;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Stock{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", numberOfStockShares=" + numberOfStockShares +
+                ", industry=" + industry +
+                ", users=" + users +
+                '}';
+    }
 }

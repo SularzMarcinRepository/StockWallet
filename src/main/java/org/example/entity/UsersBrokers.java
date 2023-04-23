@@ -32,6 +32,8 @@ public class UsersBrokers {
 
 
 
+
+
     public String getName() {
         return name;
     }
@@ -46,5 +48,15 @@ public class UsersBrokers {
 
     public void setAccountnumber(String accountnumber) {
         this.accountnumber = accountnumber;
+    }
+
+    @Override
+    public String toString() {
+        return "UsersBrokers{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", accountnumber='" + accountnumber + '\'' +
+                ", users=" + users +
+                '}';
     }
 }
