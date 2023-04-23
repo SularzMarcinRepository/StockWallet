@@ -12,7 +12,7 @@ public class UsersBrokers {
     @Column(name = "account_number")
     private String accountnumber;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Users users;
 
     public Users getUsers() {

@@ -17,7 +17,7 @@ public class Stock {
     private int numberOfStockShares;
     @Enumerated(EnumType.STRING)
     private Industry industry;
-    @ManyToMany(mappedBy = "stock")
+    @ManyToMany(mappedBy = "stock",fetch = FetchType.LAZY)
     private Set<Users>users=new HashSet<>();
 
     public Set<Users> getUsers() {
