@@ -10,14 +10,18 @@
         </Console>
     </Appenders>
     <Loggers>
-        <Logger name="org.hibernate.SQL" level="info" additivity="false">
+        <Logger name="org.hibernate.SQL" level="WARN" additivity="false">
             <AppenderRef ref="Console-Appender"/>
         </Logger>
-        <Logger name="org.hibernate.type.descriptor.sql" level="trace" additivity="false">
+        <Logger name="org.hibernate.type.descriptor.sql" level="info" additivity="false">
             <AppenderRef ref="Console-Appender"/>
         </Logger>
+        <logger name="org.hibernate">
+            <level value="WARN"/>
+        </logger>
         <Root level="info">
             <AppenderRef ref="Console-Appender"/>
         </Root>
+
     </Loggers>
 </Configuration>

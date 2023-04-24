@@ -1,4 +1,4 @@
-package org.example.repository;
+package org.example.repository.UsersCrud;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -8,36 +8,24 @@ import org.apache.logging.log4j.Logger;
 import org.example.Main;
 import org.example.entity.Users;
 
-public class CrudMethodsCreate {
+public class UsersCrudMethodsUpdate {
 
     static Logger logger = LogManager.getLogger(Main.class);
     static EntityManagerFactory entityManagerFactory= Persistence.createEntityManagerFactory("unit");
 
     static EntityManager em=entityManagerFactory.createEntityManager();
 
-    public static void createUser(){
-
-        Users user= new Users();
-        em.getTransaction().begin();
-
-        em.persist(user);
-        logger.info(user);
-        em.getTransaction().commit();
-        em.close();
-    }
-    public static void createUserWithData(String name,String surname){
-
-        Users user= new Users();
-        user.setName(name);
-        user.setSurname(surname);
+    public static void UpdateUserName(long id, String newName){
 
         em.getTransaction().begin();
-
-        em.persist(user);
+        Users user= em.find(Users.class,id);
+        user.setName(newName);
+        em.merge(user);
         logger.info(user);
 
         em.getTransaction().commit();
         em.close();
     }
+
 
 }

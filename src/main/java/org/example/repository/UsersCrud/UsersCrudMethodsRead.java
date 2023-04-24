@@ -1,4 +1,4 @@
-package org.example.repository;
+package org.example.repository.UsersCrud;
 
 import jakarta.persistence.*;
 import org.apache.logging.log4j.LogManager;
@@ -8,10 +8,9 @@ import org.example.entity.Stock;
 import org.example.entity.Users;
 import org.example.entity.UsersBrokers;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class CrudMethodsRead {
+public class UsersCrudMethodsRead {
 
     static Logger logger = LogManager.getLogger(Main.class);
     static EntityManagerFactory entityManagerFactory= Persistence.createEntityManagerFactory("unit");
