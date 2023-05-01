@@ -17,16 +17,13 @@ public class Users {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "logging_data_id")
     private LoggingData loggingData;
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-            joinColumns = {@JoinColumn(name = "users_id")},
-            inverseJoinColumns = {@JoinColumn(name = "stock_id")}
 
-            )
-    private Set<Stock> stock = new HashSet<>();
 
     @OneToMany(mappedBy = "users")
     private Set<UsersBrokers> usersBrokers = new HashSet<>();
+
+    @OneToMany(mappedBy = "users")
+    private Set<Transactions> transactions= new HashSet<>();
 
     public Users() {
     }
@@ -34,11 +31,9 @@ public class Users {
         this.usersBrokers.add(usersBrokers);
         usersBrokers.setUsers(this);
     }
-    public void addStock (Stock stock){
-        this.stock.add(stock);
-        stock.getUsers().add(this);
 
-    }
+
+
 
     public Set<UsersBrokers> getUsersBrokers() {
         return usersBrokers;
@@ -77,14 +72,13 @@ public class Users {
         this.surname = surname;
     }
 
-    public Set<Stock> getStock() {
-        return stock;
+    public Set<Transactions> getTransactions() {
+        return transactions;
     }
 
-    public void setStock(Set<Stock> stock) {
-        this.stock = stock;
+    public void setTransactions(Set<Transactions> transactions) {
+        this.transactions = transactions;
     }
-
 
     @Override
     public String toString() {

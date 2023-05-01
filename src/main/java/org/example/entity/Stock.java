@@ -17,16 +17,11 @@ public class Stock {
     private int numberOfStockShares;
     @Enumerated(EnumType.STRING)
     private Industry industry;
-    @ManyToMany(mappedBy = "stock",fetch = FetchType.LAZY)
-    private Set<Users>users=new HashSet<>();
+    @OneToMany(mappedBy = "stock")
+    private Set<Transactions> transactions= new HashSet<>();
 
-    public Set<Users> getUsers() {
-        return users;
-    }
 
-    public void setUsers(Set<Users> users) {
-        this.users = users;
-    }
+
 
     public Stock() {
     }
@@ -69,6 +64,14 @@ public class Stock {
         this.industry = industry;
     }
 
+    public Set<Transactions> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(Set<Transactions> transactions) {
+        this.transactions = transactions;
+    }
+
     @Override
     public String toString() {
         return "Stock{" +
@@ -77,7 +80,7 @@ public class Stock {
                 ", price=" + price +
                 ", numberOfStockShares=" + numberOfStockShares +
                 ", industry=" + industry +
-                ", users=" + users +
+
                 '}';
     }
 }
