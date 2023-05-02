@@ -1,4 +1,4 @@
-package org.example.repository.UsersCrud;
+package org.example.repository.usersCrud;
 
 import jakarta.persistence.*;
 import org.apache.logging.log4j.LogManager;
@@ -7,6 +7,7 @@ import org.example.Main;
 import org.example.entity.Stock;
 import org.example.entity.Users;
 import org.example.entity.UsersBrokers;
+import org.example.service.LoggingUser;
 
 import java.util.List;
 
@@ -36,6 +37,7 @@ public class UsersCrudMethodsRead {
         em.getTransaction().begin();
         TypedQuery<Users> query=em.createQuery("select u from Users u", Users.class);
         List<Users> results= query.getResultList();
+
         for(Users users:results){
             logger.info(users);
         }
@@ -65,6 +67,18 @@ public class UsersCrudMethodsRead {
         for (UsersBrokers usersBrokers:result){
             logger.info(usersBrokers.getName());
         }
+        em.getTransaction().commit();
+        em.close();
+    }
+    public static void ReadUserBalance(){
+
+
+        em.getTransaction().begin();
+        Users user= em.find(Users.class,LoggingUser.walletsUserID);
+
+        System.out.println(("Twój balans wynosi:"+ " " + user.getBalance()));
+
+
         em.getTransaction().commit();
         em.close();
     }

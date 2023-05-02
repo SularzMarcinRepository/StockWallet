@@ -1,4 +1,4 @@
-package org.example.repository.LoggingDataCrud;
+package org.example.repository.stockCrud;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -8,30 +8,27 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.Main;
 import org.example.entity.LoggingData;
+import org.example.entity.Stock;
 
 import java.util.List;
+import java.util.Stack;
 
-public class LoggingDataCrudMethodsRead {
+public class StockCrudMethodsRead {
     static Logger logger = LogManager.getLogger(Main.class);
     static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("unit");
 
     static EntityManager em = entityManagerFactory.createEntityManager();
 
-    public static String ReadUserLoggingData(long id) {
 
-        LoggingData loggingData = em.find(LoggingData.class, id);
-        em.getTransaction().begin();
-
-        String login= loggingData.getLogin();
-        return login;
-    }
-    public static List<LoggingData> ReadAllLoggingData(){
+    public static List<Stock> readAllStock(){
 
         em.getTransaction().begin();
-        TypedQuery<LoggingData> query=em.createQuery("select l from LoggingData l", LoggingData.class);
-        List<LoggingData> results= query.getResultList();
+        TypedQuery<Stock> query=em.createQuery("select s from Stock s", Stock.class);
+        List<Stock> results= query.getResultList();
+
         em.getTransaction().commit();
         em.close();
         return results;
     }
 }
+

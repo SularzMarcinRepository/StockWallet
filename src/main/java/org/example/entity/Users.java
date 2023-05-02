@@ -2,6 +2,7 @@ package org.example.entity;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,6 +13,7 @@ public class Users {
     private long id;
     private String name;
     private String surname;
+    private BigDecimal balance;
 
 
     @OneToOne(fetch = FetchType.LAZY)
@@ -78,6 +80,14 @@ public class Users {
 
     public void setTransactions(Set<Transactions> transactions) {
         this.transactions = transactions;
+    }
+
+    public BigDecimal getBalance() {
+        return balance;
+    }
+
+    public void setBalance(BigDecimal balance) {
+        this.balance = balance;
     }
 
     @Override

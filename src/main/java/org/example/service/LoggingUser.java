@@ -1,13 +1,14 @@
 package org.example.service;
 
 import org.example.entity.LoggingData;
-import org.example.repository.LoggingDataCrud.LoggingDataCrudMethodsRead;
+import org.example.entity.Users;
+import org.example.repository.loggingDataCrud.LoggingDataCrudMethodsRead;
 
 import java.util.List;
 import java.util.Scanner;
 
 public class LoggingUser {
-
+public static Users walletsUserID;
 
     public static void getLoggingDataWithPassword() {
         System.out.println("Podaj swój login:");
@@ -19,18 +20,19 @@ public class LoggingUser {
         String password = scanner.nextLine();
 
         List<LoggingData> list = LoggingDataCrudMethodsRead.ReadAllLoggingData();
-        boolean isUserinDataBase = false;
+        boolean isUserInDataBase = false;
         for (LoggingData loggingData : list) {
 
             if ((loggingData.getLogin().equals(login)) && (loggingData.getPassword().equals(password))) {
 
                 System.out.println("podałeś poprawne dane");
-                isUserinDataBase = true;
+                isUserInDataBase = true;
+                walletsUserID= loggingData.getUsers();
                 break;
             }
 
         }
-        if (!isUserinDataBase) {
+        if (!isUserInDataBase) {
             System.out.println("podałeś błędne dane");
         }
     }

@@ -2,6 +2,7 @@ package org.example.entity;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,7 +12,8 @@ public class Stock {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    private int price;
+    private BigDecimal price;
+    private String ticker;
 
     @Column(name = "numer_of_stock_shares")
     private int numberOfStockShares;
@@ -40,11 +42,11 @@ public class Stock {
         this.name = name;
     }
 
-    public int getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
@@ -70,6 +72,14 @@ public class Stock {
 
     public void setTransactions(Set<Transactions> transactions) {
         this.transactions = transactions;
+    }
+
+    public String getTicker() {
+        return ticker;
+    }
+
+    public void setTicker(String ticker) {
+        this.ticker = ticker;
     }
 
     @Override

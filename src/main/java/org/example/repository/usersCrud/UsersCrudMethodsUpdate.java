@@ -1,4 +1,4 @@
-package org.example.repository.UsersCrud;
+package org.example.repository.usersCrud;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
