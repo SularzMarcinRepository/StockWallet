@@ -6,7 +6,10 @@ import jakarta.persistence.Persistence;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.Main;
+import org.example.entity.LoggingData;
 import org.example.entity.Users;
+
+import java.math.BigDecimal;
 
 public class UsersCrudMethodsCreate {
 
@@ -25,11 +28,14 @@ public class UsersCrudMethodsCreate {
         em.getTransaction().commit();
         em.close();
     }
-    public static void createUserWithData(String name,String surname){
+    public static void createUserWithData(String name, String surname, LoggingData loggingData){
 
         Users user= new Users();
         user.setName(name);
         user.setSurname(surname);
+        user.setBalance(new BigDecimal(0.0));
+        user.setLoggingData(loggingData);
+        loggingData.setUsers(user);
 
         em.getTransaction().begin();
 
