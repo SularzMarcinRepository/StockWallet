@@ -24,7 +24,7 @@ public class NewTransaction {
         transactions.setStock(TransactionStockId.StockId);
         transactions.setUsers(LoggingUser.walletsUserID);
         transactions.setLocalDate(LocalDate.parse(TransactionAmountPriceAndDate.transactionDate));
-        transactions.setStockamount(TransactionAmountPriceAndDate.stockAmount);
+        transactions.setStockAmount(TransactionAmountPriceAndDate.stockAmount);
         transactions.setPrice(TransactionAmountPriceAndDate.stockPrice);
         transactions.setTransactionType(TransactionBuyOrSell.transactionType);
 

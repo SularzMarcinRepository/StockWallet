@@ -44,6 +44,7 @@ public class UsersCrudMethodsRead {
         em.getTransaction().commit();
         em.close();
     }
+    // metoda ponizej raczej jest nieaktualna!
     public static void ReadUsersStock(long id) {
 
         em.getTransaction().begin();

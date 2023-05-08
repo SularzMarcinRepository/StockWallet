@@ -1,7 +1,6 @@
 package org.example.entity;
 
 import jakarta.persistence.*;
-import jakarta.transaction.Transaction;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -12,7 +11,7 @@ public class Transactions {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name = "stock_amount")
-    private int stockamount;
+    private int stockAmount;
     @Column(name = "transaction_date")
     private LocalDate localDate;
 
@@ -38,12 +37,12 @@ public class Transactions {
 
 
 
-    public int getStockamount() {
-        return stockamount;
+    public int getStockAmount() {
+        return stockAmount;
     }
 
-    public void setStockamount(int stockamount) {
-        this.stockamount = stockamount;
+    public void setStockAmount(int stockAmount) {
+        this.stockAmount = stockAmount;
     }
 
     public LocalDate getLocalDate() {
