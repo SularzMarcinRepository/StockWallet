@@ -21,7 +21,7 @@ public class NewTransaction {
 
         Transactions transactions= new Transactions();
         em.getTransaction().begin();
-        transactions.setStock(TransactionStockId.StockId);
+        transactions.setStockName(TransactionStockName.stockName);
         transactions.setUsers(LoggingUser.walletsUserID);
         transactions.setLocalDate(LocalDate.parse(TransactionAmountPriceAndDate.transactionDate));
         transactions.setStockAmount(TransactionAmountPriceAndDate.stockAmount);

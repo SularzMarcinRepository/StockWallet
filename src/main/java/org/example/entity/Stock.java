@@ -19,8 +19,7 @@ public class Stock {
     private int numberOfStockShares;
     @Enumerated(EnumType.STRING)
     private Industry industry;
-    @OneToMany(mappedBy = "stock")
-    private Set<Transactions> transactions= new HashSet<>();
+
 
 
 
@@ -66,13 +65,9 @@ public class Stock {
         this.industry = industry;
     }
 
-    public Set<Transactions> getTransactions() {
-        return transactions;
-    }
 
-    public void setTransactions(Set<Transactions> transactions) {
-        this.transactions = transactions;
-    }
+
+
 
     public String getTicker() {
         return ticker;

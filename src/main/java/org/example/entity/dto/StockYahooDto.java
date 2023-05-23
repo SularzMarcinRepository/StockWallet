@@ -4,8 +4,14 @@ public class StockYahooDto {
     private String StockName;
     private Double price;
     private String currency;
+    private int stockAmount;
 
     public StockYahooDto() {
+    }
+
+    public StockYahooDto(String stockName, int stockAmount) {
+        StockName = stockName;
+        this.stockAmount = stockAmount;
     }
 
     public String getStockName() {
@@ -22,6 +28,14 @@ public class StockYahooDto {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public int getStockAmount() {
+        return stockAmount;
+    }
+
+    public void setStockAmount(int stockAmount) {
+        this.stockAmount = stockAmount;
     }
 
     public String getCurrency() {

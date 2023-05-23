@@ -2,6 +2,10 @@ package org.example.controller;
 
 import org.example.service.LoggingUser;
 import org.example.repository.transactionsCrud.UsersTransactions;
+import org.example.service.newTransaction.NewTransaction;
+import org.example.service.newTransaction.TransactionAmountPriceAndDate;
+import org.example.service.newTransaction.TransactionBuyOrSell;
+import org.example.service.newTransaction.TransactionStockName;
 import org.example.service.usersStock.ShowUsersStock;
 
 public class WalletFrontEnd {
@@ -15,7 +19,8 @@ public class WalletFrontEnd {
 //
 //
 //        TransactionBuyOrSell.transactionType();
-//        TransactionStockId.stockId();
+//        TransactionStockName.transactionStockName();
+////        TransactionStockId.stockId();
 //        TransactionAmountPriceAndDate.transactionStockAmount();
 //        TransactionAmountPriceAndDate.transactionStockPrice();
 //        TransactionAmountPriceAndDate.transactionStockDate();

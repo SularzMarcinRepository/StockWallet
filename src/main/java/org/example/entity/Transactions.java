@@ -14,15 +14,15 @@ public class Transactions {
     private int stockAmount;
     @Column(name = "transaction_date")
     private LocalDate localDate;
+    @Column(name = "stock_name")
+    private String stockName;
 
     private BigDecimal price;
     @Enumerated(EnumType.STRING)
     @Column(name = "transaction_type")
     private TransactionType transactionType;
 
-    @ManyToOne
-    @JoinColumn(name = "stock_id")
-    private Stock stock;
+
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -35,7 +35,13 @@ public class Transactions {
         return id;
     }
 
+    public String getStockName() {
+        return stockName;
+    }
 
+    public void setStockName(String stockName) {
+        this.stockName = stockName;
+    }
 
     public int getStockAmount() {
         return stockAmount;
@@ -53,13 +59,9 @@ public class Transactions {
         this.localDate = localDate;
     }
 
-    public Stock getStock() {
-        return stock;
-    }
 
-    public void setStock(Stock stock) {
-        this.stock = stock;
-    }
+
+
 
     public Users getUsers() {
         return users;

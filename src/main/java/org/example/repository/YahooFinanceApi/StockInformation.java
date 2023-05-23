@@ -55,13 +55,6 @@ public class StockInformation {
         return null;
     }
 
-    public static void main(String[] args) {
-        try {
-            StockYahooDto stockYahooDto = StockInformation.getStockInformation("AAPL");
-            System.out.println(stockYahooDto);
-        }  catch (Exception e){
-            System.out.println("błąd");
 
-        }
-    }
+
 }
