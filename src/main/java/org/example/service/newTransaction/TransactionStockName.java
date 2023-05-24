@@ -23,6 +23,7 @@ public class TransactionStockName {
             stockName=stockYahooDto.getStockName();
         } catch (Exception e) {
             System.out.println("Podałeś nieprawidłową nazwe akcji");
+            System.exit(0);
 
         }
     }

@@ -21,7 +21,7 @@ public class StockInformation {
         int responseCode = connection.getResponseCode();
 
         if (responseCode == HttpURLConnection.HTTP_OK) {
-            // Odpowiedź jest poprawna, sprawdzamy, czy akcja istnieje
+
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             StringBuilder response = new StringBuilder();
             String line;
@@ -33,7 +33,7 @@ public class StockInformation {
 
             String jsonResponse = response.toString();
 
-            // Sprawdzamy, czy odpowiedź zawiera dane dotyczące akcji
+
             JSONObject jsonObject = new JSONObject(jsonResponse);
             JSONObject chartObject = jsonObject.getJSONObject("chart");
 
@@ -50,8 +50,6 @@ public class StockInformation {
             return stockYahooDtoDTO;
         }
 
-
-        // Akcja nie istnieje lub błąd połączenia
         return null;
     }
 

@@ -1,6 +1,8 @@
 package org.example.service.newTransaction;
 
 import org.example.entity.TransactionType;
+import org.example.entity.dto.StockYahooDto;
+import org.example.service.usersStock.UsersStock;
 
 import java.math.BigDecimal;
 import java.util.Scanner;
@@ -19,6 +21,16 @@ public class TransactionAmountPriceAndDate {
         }
         Scanner scanner = new Scanner(System.in);
         stockAmount = scanner.nextInt();
+        if(TransactionBuyOrSell.transactionType== TransactionType.SELL){
+            for(StockYahooDto stockYahooDto : UsersStock.usersStock()){
+                if(stockYahooDto.getStockName().equals(TransactionStockName.stockName) && (stockYahooDto.getStockAmount()<stockAmount)){
+                    System.out.println("nie masz wystarczającej ilości akcji.");
+                    System.out.println("W portfelu masz" + " "  + stockYahooDto.getStockAmount() + " " +"akcji spółki "+ stockYahooDto.getStockName());
+                    System.exit(0);
+                }
+            }
+
+        }
     }
     public static void transactionStockPrice() {
         System.out.println("Podaj cene pojedynczej akcji (w razie potrzeby oddziel cześć dziesietną przecinkiem)");
