@@ -12,9 +12,10 @@ public class LoggingDataCrudMethodsRead {
     static Logger logger = LogManager.getLogger(Main.class);
     static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("unit");
 
-    static EntityManager em = entityManagerFactory.createEntityManager();
+//    static EntityManager em = entityManagerFactory.createEntityManager();
 
     public static String ReadUserLoggingData(long id) {
+         EntityManager em = entityManagerFactory.createEntityManager();
 
         LoggingData loggingData = em.find(LoggingData.class, id);
         em.getTransaction().begin();
@@ -23,6 +24,7 @@ public class LoggingDataCrudMethodsRead {
         return login;
     }
     public static List<LoggingData> ReadAllLoggingData(){
+         EntityManager em = entityManagerFactory.createEntityManager();
 
         em.getTransaction().begin();
         TypedQuery<LoggingData> query=em.createQuery("select l from LoggingData l", LoggingData.class);

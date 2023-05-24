@@ -6,6 +6,7 @@ import jakarta.persistence.Persistence;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.entity.*;
+import org.example.repository.YahooFinanceApi.ShowStockPrice;
 import org.example.repository.stockCrud.StockCrudMethodsRead;
 
 import java.math.BigDecimal;
@@ -16,22 +17,8 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Logger logger = LogManager.getLogger(Main.class);
-        EntityManagerFactory entityManagerFactory= Persistence.createEntityManagerFactory("unit");
+        ShowStockPrice.showStockPrice();
 
-        EntityManager em=entityManagerFactory.createEntityManager();
-
-
-
-            em.getTransaction().begin();
-
-        StockCrudMethodsRead.readAllStock();
-
-
-
-
-            em.getTransaction().commit();
-            em.close();
 
 
 

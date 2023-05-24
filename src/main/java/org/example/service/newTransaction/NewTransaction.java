@@ -15,9 +15,10 @@ public class NewTransaction {
     static Logger logger = LogManager.getLogger(Main.class);
     static EntityManagerFactory entityManagerFactory= Persistence.createEntityManagerFactory("unit");
 
-    static EntityManager em=entityManagerFactory.createEntityManager();
+//    static EntityManager em=entityManagerFactory.createEntityManager();
 
     public static void newTransaction(){
+        EntityManager em=entityManagerFactory.createEntityManager();
 
         Transactions transactions= new Transactions();
         em.getTransaction().begin();
@@ -32,6 +33,7 @@ public class NewTransaction {
         logger.info(transactions);
         em.getTransaction().commit();
         em.close();
+        System.out.println("Poprawnie dodano transakcje do listy transakcji.");
     }
 
 }

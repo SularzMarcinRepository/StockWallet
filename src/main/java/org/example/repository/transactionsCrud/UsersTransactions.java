@@ -16,9 +16,10 @@ public class UsersTransactions {
     static Logger logger = LogManager.getLogger(Main.class);
     static EntityManagerFactory entityManagerFactory= Persistence.createEntityManagerFactory("unit");
 
-    static EntityManager em=entityManagerFactory.createEntityManager();
+//    static EntityManager em=entityManagerFactory.createEntityManager();
 
     public static List<Transactions> ReadUsersStock(Users id) {
+        EntityManager em=entityManagerFactory.createEntityManager();
 
         em.getTransaction().begin();
 

@@ -13,9 +13,10 @@ public class UsersCrudMethodsUpdate {
     static Logger logger = LogManager.getLogger(Main.class);
     static EntityManagerFactory entityManagerFactory= Persistence.createEntityManagerFactory("unit");
 
-    static EntityManager em=entityManagerFactory.createEntityManager();
+//    static EntityManager em=entityManagerFactory.createEntityManager();
 
     public static void UpdateUserName(long id, String newName){
+        EntityManager em=entityManagerFactory.createEntityManager();
 
         em.getTransaction().begin();
         Users user= em.find(Users.class,id);

@@ -16,9 +16,10 @@ public class UsersCrudMethodsRead {
     static Logger logger = LogManager.getLogger(Main.class);
     static EntityManagerFactory entityManagerFactory= Persistence.createEntityManagerFactory("unit");
 
-    static EntityManager em=entityManagerFactory.createEntityManager();
+//    static EntityManager em=entityManagerFactory.createEntityManager();
 
     public static void ReadUser(long id){
+        EntityManager em=entityManagerFactory.createEntityManager();
 
 
         Users user= em.find(Users.class,id);
@@ -33,6 +34,7 @@ public class UsersCrudMethodsRead {
         em.close();
     }
     public static void ReadAllUsers(){
+        EntityManager em=entityManagerFactory.createEntityManager();
 
         em.getTransaction().begin();
         TypedQuery<Users> query=em.createQuery("select u from Users u", Users.class);
@@ -46,6 +48,7 @@ public class UsersCrudMethodsRead {
     }
     // metoda ponizej raczej jest nieaktualna!
     public static void ReadUsersStock(long id) {
+        EntityManager em=entityManagerFactory.createEntityManager();
 
         em.getTransaction().begin();
 
@@ -59,6 +62,7 @@ public class UsersCrudMethodsRead {
         em.close();
     }
     public static void ReadUsersBrokers(long id) {
+        EntityManager em=entityManagerFactory.createEntityManager();
 
         em.getTransaction().begin();
 
@@ -72,6 +76,7 @@ public class UsersCrudMethodsRead {
         em.close();
     }
     public static void ReadUserBalance(){
+        EntityManager em=entityManagerFactory.createEntityManager();
 
 
         em.getTransaction().begin();

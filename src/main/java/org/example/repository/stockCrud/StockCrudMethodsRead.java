@@ -17,10 +17,11 @@ public class StockCrudMethodsRead {
     static Logger logger = LogManager.getLogger(Main.class);
     static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("unit");
 
-    static EntityManager em = entityManagerFactory.createEntityManager();
 
+//    static EntityManager em = entityManagerFactory.createEntityManager();
 
     public static List<Stock> readAllStock(){
+        EntityManager em = entityManagerFactory.createEntityManager();
 
         em.getTransaction().begin();
         TypedQuery<Stock> query=em.createQuery("select s from Stock s", Stock.class);

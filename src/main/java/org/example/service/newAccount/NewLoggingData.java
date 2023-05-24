@@ -1,5 +1,6 @@
 package org.example.service.newAccount;
 
+import org.example.controller.LoginToTheApplication;
 import org.example.entity.LoggingData;
 import org.example.repository.loggingDataCrud.LoggingDataCrudMethodsCreate;
 import org.example.repository.loggingDataCrud.LoggingDataCrudMethodsRead;
@@ -9,11 +10,11 @@ import java.util.Scanner;
 
 public class NewLoggingData {
     public static void createNewLoggingData(){
-        System.out.println("Podaj login");
+        System.out.println("Podaj login za pomocą którego będziesz się logował");
         Scanner scanner = new Scanner(System.in);
         String login = scanner.nextLine();
 
-        System.out.println("Podaj hasło");
+        System.out.println("Podaj hasło do konta");
         Scanner scanner2 = new Scanner(System.in);
         String password = scanner2.nextLine();
 
@@ -31,6 +32,7 @@ public class NewLoggingData {
 
                     System.out.println("Użytkownik o podanym loginie już jest w bazie danych");
                     isUserInDataBase = true;
+                    LoginToTheApplication.loginToTheApplication();
                     break;
                 }
 
@@ -42,6 +44,7 @@ public class NewLoggingData {
             }
         } else {
             System.out.println("błędnie powtórzyłes hasło");
+            LoginToTheApplication.loginToTheApplication();
         }
 
 

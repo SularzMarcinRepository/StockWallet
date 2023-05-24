@@ -16,9 +16,10 @@ public class UsersCrudMethodsCreate {
     static Logger logger = LogManager.getLogger(Main.class);
     static EntityManagerFactory entityManagerFactory= Persistence.createEntityManagerFactory("unit");
 
-    static EntityManager em=entityManagerFactory.createEntityManager();
+//    static EntityManager em=entityManagerFactory.createEntityManager();
 
     public static void createUser(){
+        EntityManager em=entityManagerFactory.createEntityManager();
 
         Users user= new Users();
         em.getTransaction().begin();
@@ -29,6 +30,7 @@ public class UsersCrudMethodsCreate {
         em.close();
     }
     public static void createUserWithData(String name, String surname, LoggingData loggingData){
+        EntityManager em=entityManagerFactory.createEntityManager();
 
         Users user= new Users();
         user.setName(name);

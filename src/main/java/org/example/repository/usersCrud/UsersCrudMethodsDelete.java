@@ -13,9 +13,10 @@ public class UsersCrudMethodsDelete {
     static Logger logger = LogManager.getLogger(Main.class);
     static EntityManagerFactory entityManagerFactory= Persistence.createEntityManagerFactory("unit");
 
-    static EntityManager em=entityManagerFactory.createEntityManager();
+//    static EntityManager em=entityManagerFactory.createEntityManager();
 
     public static void DeleteUser(long id){
+        EntityManager em=entityManagerFactory.createEntityManager();
 
         Users user= em.find(Users.class,id);
         em.getTransaction().begin();

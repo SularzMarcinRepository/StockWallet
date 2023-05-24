@@ -19,5 +19,6 @@ public class NewUserData {
         String surname = scanner2.nextLine();
 
         UsersCrudMethodsCreate.createUserWithData(name,surname,loggingData);
+        System.out.println("Dziękujemy za dokończenie rejestracji. Możesz już korzystać ze swojego portfela ");
     }
 }
